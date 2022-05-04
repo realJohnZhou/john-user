@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: john-user
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: false
