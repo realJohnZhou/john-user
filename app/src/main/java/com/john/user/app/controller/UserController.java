@@ -1,7 +1,7 @@
-package com.john.user.controller;
+package com.john.user.app.controller;
 
-import com.john.user.entity.User;
-import com.john.user.service.UserService;
+import com.john.user.app.entity.User;
+import com.john.user.app.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

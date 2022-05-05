@@ -1,4 +1,4 @@
-package com.john.user.entity;
+package com.john.user.app.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

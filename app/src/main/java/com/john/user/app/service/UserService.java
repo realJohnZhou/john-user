@@ -1,7 +1,7 @@
-package com.john.user.service;
+package com.john.user.app.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.john.user.entity.User;
+import com.john.user.app.entity.User;
 
 /**
  * user service

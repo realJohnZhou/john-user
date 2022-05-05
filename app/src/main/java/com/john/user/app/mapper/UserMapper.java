@@ -1,7 +1,7 @@
-package com.john.user.mapper;
+package com.john.user.app.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.john.user.entity.User;
+import com.john.user.app.entity.User;
 
 /**
  * user mapper
