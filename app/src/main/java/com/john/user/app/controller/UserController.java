@@ -1,5 +1,8 @@
 package com.john.user.app.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.john.boot.common.dto.PageRequest;
+import com.john.boot.mysql.util.PageUtil;
 import com.john.user.app.entity.User;
 import com.john.user.app.service.UserService;
 import io.swagger.annotations.Api;
@@ -19,6 +22,11 @@ import java.util.Set;
 @RestController
 public class UserController {
     private final UserService userService;
+
+    @GetMapping("/page")
+    public Page<User> getPage(PageRequest request) {
+        return userService.page(PageUtil.getPage(request));
+    }
 
     @GetMapping("/{id}")
     public User getById(@PathVariable String id) {
