@@ -5,6 +5,7 @@ create table `user`
     `update_time` datetime    default current_timestamp comment 'update time',
     `create_by`   varchar(20)  not null comment 'create user id',
     `update_by`   varchar(20)  not null comment 'update user id',
+    `deleted`     bit(1)      default 0 comment 'deleted',
     `username`    varchar(50)  not null comment 'username for login',
     `password`    varchar(100) not null comment 'password for login',
     `name`        varchar(20)  not null comment 'name',
@@ -20,6 +21,7 @@ create table `menu`
     `update_time` datetime default current_timestamp comment 'update time',
     `create_by`   varchar(20)  not null comment 'create user id',
     `update_by`   varchar(20)  not null comment 'update user id',
+    `deleted`     bit(1)   default 0 comment 'deleted',
     `code`        varchar(20)  not null comment 'code',
     `name`        varchar(20)  not null comment 'name',
     `path`        varchar(100) not null comment 'router path',
@@ -36,6 +38,7 @@ create table `role`
     `update_time` datetime default current_timestamp comment 'update time',
     `create_by`   varchar(20) not null comment 'create user id',
     `update_by`   varchar(20) not null comment 'update user id',
+    `deleted`     bit(1)   default 0 comment 'deleted',
     `code`        varchar(20) not null comment 'code',
     `name`        varchar(20) not null comment 'name',
     primary key (`id`)
@@ -48,6 +51,7 @@ create table `permission`
     `update_time` datetime default current_timestamp comment 'update time',
     `create_by`   varchar(20) not null comment 'create user id',
     `update_by`   varchar(20) not null comment 'update user id',
+    `deleted`     bit(1)   default 0 comment 'deleted',
     `menu_id`     varchar(20) not null comment 'menu id',
     `role_id`     varchar(20) not null comment 'role id',
     primary key (`id`)
@@ -59,6 +63,7 @@ create table `user_role`
     `update_time` datetime default current_timestamp comment 'update time',
     `create_by`   varchar(20) not null comment 'create user id',
     `update_by`   varchar(20) not null comment 'update user id',
+    `deleted`     bit(1)   default 0 comment 'deleted',
     `user_id`     varchar(20) not null comment 'user id',
     `role_id`     varchar(20) not null comment 'role id',
     primary key (`id`)
