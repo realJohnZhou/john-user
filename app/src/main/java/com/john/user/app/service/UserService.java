@@ -8,4 +8,11 @@ import com.john.user.app.entity.User;
  * @author john
  */
 public interface UserService extends IService<User> {
+
+    /**
+     * find user by username
+     * @param username username
+     * @return user
+     */
+    User findByUsername(String username);
 }
