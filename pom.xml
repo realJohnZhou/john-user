@@ -18,8 +18,8 @@
     </properties>
 
     <modules>
-        <module>app</module>
-        <module>client</module>
+        <module>user-app</module>
+        <module>user-client</module>
     </modules>
 
 </project>
