@@ -1,7 +1,7 @@
 package com.john.user.client.clients;
 
+import com.john.boot.common.dto.AuthUser;
 import com.john.boot.common.dto.Result;
-import com.john.user.client.dto.response.AuthInfoResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -17,5 +17,5 @@ public interface UserClient {
      * @return login information
      */
     @GetMapping("/auth/get-me")
-    Result<AuthInfoResponse> getMe();
+    Result<AuthUser> getMe();
 }
