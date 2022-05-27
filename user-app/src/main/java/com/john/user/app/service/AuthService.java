@@ -1,7 +1,7 @@
 package com.john.user.app.service;
 
+import com.john.boot.common.dto.AuthUser;
 import com.john.user.client.dto.request.LoginRequest;
-import com.john.user.client.dto.response.AuthInfoResponse;
 import com.john.user.client.dto.response.LoginResponse;
 
 /**
@@ -37,5 +37,5 @@ public interface AuthService {
      *
      * @return
      */
-    AuthInfoResponse getMe();
+    AuthUser getMe();
 }
