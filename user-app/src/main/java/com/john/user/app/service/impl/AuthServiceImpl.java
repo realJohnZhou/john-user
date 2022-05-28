@@ -1,7 +1,7 @@
 package com.john.user.app.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.john.boot.common.dto.AuditUser;
+import com.john.boot.common.dto.AuthUser;
 import com.john.boot.common.exception.BusinessException;
 import com.john.boot.common.util.AuditUserContextHolder;
 import com.john.user.app.entity.User;
@@ -11,11 +11,9 @@ import com.john.user.app.mapper.UserMapper;
 import com.john.user.app.security.PasswordCryptUtil;
 import com.john.user.app.service.AuthService;
 import com.john.user.client.dto.request.LoginRequest;
-import com.john.user.client.dto.response.AuthInfoResponse;
 import com.john.user.client.dto.response.LoginResponse;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -88,13 +86,10 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public AuthInfoResponse getMe() {
-        AuditUser auditUser = AuditUserContextHolder.getUser();
+    public AuthUser getMe() {
+        AuthUser auditUser = AuditUserContextHolder.getUser();
         Assert.notNull(auditUser, "login first");
-        User user = this.userMapper.selectById(auditUser.getUserId());
-        AuthInfoResponse authInfoResponse = new AuthInfoResponse();
-        BeanUtils.copyProperties(user, auditUser);
-        return authInfoResponse;
+        return auditUser;
     }
 
     private LoginResponse generateLoginResponse(User user) {
