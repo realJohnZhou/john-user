@@ -13,13 +13,12 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
-        <user.client.version>1.0.0-SNAPSHOT</user.client.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>com.john.user</groupId>
             <artifactId>user-client</artifactId>
-            <version>${user.client.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.auth0</groupId>
