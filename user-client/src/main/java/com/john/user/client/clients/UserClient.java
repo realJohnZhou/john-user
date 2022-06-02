@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * @author john
  */
-@FeignClient(value = "user-service", url = "${user.url:}")
+@FeignClient(value = "john-user", url = "${user.url:}")
 public interface UserClient {
 
     /**
