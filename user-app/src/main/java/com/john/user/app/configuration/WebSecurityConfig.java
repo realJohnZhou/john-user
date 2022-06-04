@@ -1,5 +1,7 @@
 package com.john.user.app.configuration;
 
+import com.alibaba.fastjson.JSON;
+import com.john.boot.common.dto.Result;
 import com.john.user.app.jwt.JwtFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

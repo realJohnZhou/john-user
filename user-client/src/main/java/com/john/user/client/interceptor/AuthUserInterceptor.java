@@ -1,14 +1,13 @@
 package com.john.user.client.interceptor;
 
-import com.john.boot.common.dto.AuditUser;
+import com.john.boot.common.dto.AuthUser;
 import com.john.boot.common.dto.Result;
 import com.john.boot.common.util.AuditUserContextHolder;
 import com.john.user.client.clients.UserClient;
 import com.john.user.client.contants.Constants;
-import com.john.user.client.dto.response.AuthInfoResponse;
-import com.john.user.client.util.AuditUserCache;
+import com.john.user.client.util.AuthUserCache;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -18,12 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author john
  */
-@Component
-public class AuditUserInterceptor implements HandlerInterceptor {
-    private final UserClient userClient;
+public class AuthUserInterceptor implements HandlerInterceptor {
+    private final ApplicationContext applicationContext;
 
-    public AuditUserInterceptor(UserClient userClient) {
-        this.userClient = userClient;
+    public AuthUserInterceptor(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
     }
 
     @Override
@@ -31,16 +29,17 @@ public class AuditUserInterceptor implements HandlerInterceptor {
         String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (StringUtils.hasText(authorization) && authorization.startsWith(Constants.JWT_PREFIX)) {
             String token = authorization.split(Constants.JWT_PREFIX)[1];
-            AuditUser auditUser = AuditUserCache.get(token);
-            if (auditUser == null) {
-                Result<AuthInfoResponse> me = userClient.getMe();
+            AuthUser authUser = AuthUserCache.get(token);
+            if (authUser == null) {
+                Result<AuthUser> me = applicationContext.getBean(UserClient.class).getMe();
                 if (Result.OK.equals(me.getCode())) {
-                    AuthInfoResponse authInfo = me.getData();
-                    auditUser = new AuditUser(authInfo.getUserId(), authInfo.getName());
-                    AuditUserCache.set(token, auditUser);
+                    authUser = me.getData();
+                    AuthUserCache.set(token, authUser);
+                    AuditUserContextHolder.setUser(authUser);
                 }
+            } else {
+                AuditUserContextHolder.setUser(authUser);
             }
-            AuditUserContextHolder.setUser(auditUser);
         }
         return true;
     }

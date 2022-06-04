@@ -1,8 +1,8 @@
 package com.john.user.app.controller;
 
+import com.john.boot.common.dto.AuthUser;
 import com.john.user.app.service.AuthService;
 import com.john.user.client.dto.request.LoginRequest;
-import com.john.user.client.dto.response.AuthInfoResponse;
 import com.john.user.client.dto.response.LoginResponse;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +38,7 @@ public class AuthorizationController {
     }
 
     @GetMapping("/get-me")
-    public AuthInfoResponse getMe() {
+    public AuthUser getMe() {
         return this.authService.getMe();
     }
 }
