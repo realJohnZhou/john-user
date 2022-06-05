@@ -6,9 +6,15 @@ import com.john.user.app.mapper.PermissionMapper;
 import com.john.user.app.service.PermissionService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author john
  */
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
+    @Override
+    public void replace(List<Permission> permissions) {
+        // todo
+    }
 }

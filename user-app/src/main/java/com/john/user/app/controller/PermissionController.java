@@ -26,6 +26,6 @@ public class PermissionController {
 
     @PostMapping("/replace")
     public void replace(@RequestBody List<Permission> permissions) {
-        // todo
+        permissionService.replace(permissions);
     }
 }
