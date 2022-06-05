@@ -23,4 +23,9 @@ public class PermissionController {
     public void save(@RequestBody List<Permission> permissionList) {
         permissionService.saveBatch(permissionList);
     }
+
+    @PostMapping("/replace")
+    public void replace(@RequestBody List<Permission> permissions) {
+        // todo
+    }
 }
