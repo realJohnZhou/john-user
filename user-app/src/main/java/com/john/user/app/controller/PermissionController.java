@@ -3,12 +3,10 @@ package com.john.user.app.controller;
 import com.john.user.app.entity.Permission;
 import com.john.user.app.service.PermissionService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author john
@@ -24,8 +22,8 @@ public class PermissionController {
         permissionService.saveBatch(permissionList);
     }
 
-    @PostMapping("/replace")
-    public void replace(@RequestBody List<Permission> permissions) {
-        permissionService.replace(permissions);
+    @PostMapping("/replace/{roleId}")
+    public void replace(@PathVariable String roleId, @RequestBody Set<String> menuIds) {
+        permissionService.replace(roleId, menuIds);
     }
 }
