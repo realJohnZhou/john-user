@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author john
@@ -18,12 +19,13 @@ import java.util.Set;
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
     @Override
     public void replace(String roleId, Set<String> menuIds) {
-        // todo
         QueryWrapper<Permission> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().select(BaseEntity::getId).eq(Permission::getRoleId, roleId);
         List<Permission> permissions = this.baseMapper.selectList(queryWrapper);
         if (permissions.size() > 0) {
             this.baseMapper.deleteBatchIds(permissions);
         }
+        List<Permission> permissionList = menuIds.stream().map(menuId -> new Permission(roleId, menuId)).collect(Collectors.toList());
+        this.saveBatch(permissionList);
     }
 }
