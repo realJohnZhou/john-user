@@ -2,6 +2,7 @@ package com.john.user.app.controller;
 
 import com.john.user.app.entity.Permission;
 import com.john.user.app.service.PermissionService;
+import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 /**
  * @author john
  */
+@Api(tags = "permission api")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/permission")
