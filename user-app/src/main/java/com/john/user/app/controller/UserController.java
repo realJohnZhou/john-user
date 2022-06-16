@@ -47,4 +47,9 @@ public class UserController {
     public void batchDelete(@RequestBody Set<String> ids) {
         userService.removeBatchByIds(ids);
     }
+
+    @PutMapping("/reset/{id}")
+    public void reset(@PathVariable String id) {
+        // todo
+    }
 }
