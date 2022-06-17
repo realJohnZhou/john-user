@@ -15,4 +15,10 @@ public interface UserService extends IService<User> {
      * @return user
      */
     User findByUsername(String username);
+
+    /**
+     * reset
+     * @param id
+     */
+    void reset(String id);
 }
