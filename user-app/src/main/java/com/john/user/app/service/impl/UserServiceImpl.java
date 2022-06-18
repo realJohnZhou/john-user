@@ -22,4 +22,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         queryWrapper.lambda().eq(User::getUsername, username);
         return this.baseMapper.selectOne(queryWrapper);
     }
+
+    @Override
+    public void reset(String id) {
+        // todo
+        User user = this.baseMapper.selectById(id);
+    }
 }
