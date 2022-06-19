@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.john.user.app.entity.User;
 import com.john.user.app.mapper.UserMapper;
+import com.john.user.app.security.PasswordCryptUtil;
 import com.john.user.app.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -27,5 +28,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public void reset(String id) {
         // todo
         User user = this.baseMapper.selectById(id);
+        String defaultPassword = PasswordCryptUtil.encode("123456");
     }
 }
