@@ -29,5 +29,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // todo
         User user = this.baseMapper.selectById(id);
         String defaultPassword = PasswordCryptUtil.encode("123456");
+        user.setPassword(defaultPassword);
     }
 }
