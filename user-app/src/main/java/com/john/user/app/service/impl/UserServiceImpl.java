@@ -26,9 +26,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public void reset(String id) {
-        // todo
         User user = this.baseMapper.selectById(id);
         String defaultPassword = PasswordCryptUtil.encode("123456");
         user.setPassword(defaultPassword);
+        this.baseMapper.updateById(user);
     }
 }
