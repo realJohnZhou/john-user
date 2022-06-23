@@ -18,7 +18,7 @@ public interface UserService extends IService<User> {
 
     /**
      * reset
-     * @param id
+     * @param id 主键
      */
     void reset(String id);
 }
