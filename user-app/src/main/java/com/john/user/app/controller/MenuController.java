@@ -6,6 +6,7 @@ import com.john.boot.mysql.util.PageUtil;
 import com.john.user.app.entity.Menu;
 import com.john.user.app.service.MenuService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ import java.util.Set;
 public class MenuController {
     private final MenuService menuService;
 
+    @ApiOperation("page")
     @GetMapping("/page")
     public IPage<Menu> getPage(PageRequest request) {
         return menuService.page(PageUtil.getPage(request));
