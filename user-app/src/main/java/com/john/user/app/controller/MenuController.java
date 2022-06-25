@@ -28,6 +28,7 @@ public class MenuController {
         return menuService.page(PageUtil.getPage(request));
     }
 
+    @ApiOperation("get one")
     @GetMapping("/{id}")
     public Menu getOne(@PathVariable String id) {
         return menuService.getById(id);
