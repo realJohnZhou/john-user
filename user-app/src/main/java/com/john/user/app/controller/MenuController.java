@@ -34,6 +34,7 @@ public class MenuController {
         return menuService.getById(id);
     }
 
+    @ApiOperation("save one")
     @PostMapping
     public void save(@RequestBody Menu menu) {
         menuService.save(menu);
