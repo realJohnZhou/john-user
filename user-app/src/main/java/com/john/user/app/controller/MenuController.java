@@ -40,6 +40,7 @@ public class MenuController {
         menuService.save(menu);
     }
 
+    @ApiOperation("update one")
     @PutMapping
     public void update(@RequestBody Menu menu) {
         menuService.updateById(menu);
