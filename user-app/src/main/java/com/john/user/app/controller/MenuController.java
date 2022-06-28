@@ -46,6 +46,7 @@ public class MenuController {
         menuService.updateById(menu);
     }
 
+    @ApiOperation("delete")
     @DeleteMapping
     public void delete(Set<String> ids) {
         menuService.removeByIds(ids);
