@@ -5,6 +5,7 @@ import com.john.user.app.service.AuthService;
 import com.john.user.client.dto.request.LoginRequest;
 import com.john.user.client.dto.response.LoginResponse;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,7 @@ public class AuthorizationController {
         this.authService = authService;
     }
 
+    @ApiOperation("login")
     @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
         return this.authService.login(loginRequest);
