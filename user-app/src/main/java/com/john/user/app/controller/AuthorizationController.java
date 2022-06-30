@@ -29,6 +29,7 @@ public class AuthorizationController {
         return this.authService.login(loginRequest);
     }
 
+    @ApiOperation("logout")
     @PostMapping("/logout/{userId}")
     public void logout(@PathVariable String userId) {
         this.authService.logout(userId);
