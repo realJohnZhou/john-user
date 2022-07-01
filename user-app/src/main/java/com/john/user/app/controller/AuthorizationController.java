@@ -35,6 +35,7 @@ public class AuthorizationController {
         this.authService.logout(userId);
     }
 
+    @ApiOperation("refresh")
     @PostMapping("/refresh/{userId}")
     public LoginResponse refresh(@PathVariable String userId, @RequestBody String refreshToken) {
         return this.authService.refresh(userId, refreshToken);
