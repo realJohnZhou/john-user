@@ -41,6 +41,7 @@ public class AuthorizationController {
         return this.authService.refresh(userId, refreshToken);
     }
 
+    @ApiOperation("get me")
     @GetMapping("/get-me")
     public AuthUser getMe() {
         return this.authService.getMe();
