@@ -3,6 +3,7 @@ package com.john.user.app.controller;
 import com.john.user.app.entity.Permission;
 import com.john.user.app.service.PermissionService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,7 @@ import java.util.Set;
 public class PermissionController {
     private final PermissionService permissionService;
 
+    @ApiOperation("save")
     @PostMapping
     public void save(@RequestBody List<Permission> permissionList) {
         permissionService.saveBatch(permissionList);
