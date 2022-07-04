@@ -26,6 +26,7 @@ public class PermissionController {
         permissionService.saveBatch(permissionList);
     }
 
+    @ApiOperation("replace")
     @PostMapping("/replace/{roleId}")
     public void replace(@PathVariable String roleId, @RequestBody Set<String> menuIds) {
         permissionService.replace(roleId, menuIds);
