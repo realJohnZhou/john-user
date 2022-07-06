@@ -6,6 +6,7 @@ import com.john.boot.mysql.util.PageUtil;
 import com.john.user.app.entity.User;
 import com.john.user.app.service.UserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,7 @@ import java.util.Set;
 public class UserController {
     private final UserService userService;
 
+    @ApiOperation("page")
     @GetMapping("/page")
     public Page<User> getPage(PageRequest request) {
         return userService.page(PageUtil.getPage(request));
