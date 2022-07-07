@@ -52,6 +52,6 @@ public class UserController {
 
     @PutMapping("/reset/{id}")
     public void reset(@PathVariable String id) {
-        // todo
+        this.userService.reset(id);
     }
 }
