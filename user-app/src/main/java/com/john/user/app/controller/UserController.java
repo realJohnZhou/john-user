@@ -30,6 +30,7 @@ public class UserController {
         return userService.page(PageUtil.getPage(request));
     }
 
+    @ApiOperation("get by id")
     @GetMapping("/{id}")
     public User getById(@PathVariable String id) {
         return userService.getById(id);
