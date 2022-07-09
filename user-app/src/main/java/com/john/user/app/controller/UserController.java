@@ -51,6 +51,7 @@ public class UserController {
         userService.removeBatchByIds(ids);
     }
 
+    @ApiOperation("reset")
     @PutMapping("/reset/{id}")
     public void reset(@PathVariable String id) {
         this.userService.reset(id);
