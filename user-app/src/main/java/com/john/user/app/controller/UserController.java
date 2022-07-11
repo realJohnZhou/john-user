@@ -46,6 +46,7 @@ public class UserController {
         userService.updateById(user);
     }
 
+    @ApiOperation("batch delete")
     @DeleteMapping
     public void batchDelete(@RequestBody Set<String> ids) {
         userService.removeBatchByIds(ids);
