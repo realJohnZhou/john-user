@@ -36,6 +36,7 @@ public class UserController {
         return userService.getById(id);
     }
 
+    @ApiOperation("save one")
     @PostMapping
     public void save(@RequestBody User user) {
         userService.save(user);
