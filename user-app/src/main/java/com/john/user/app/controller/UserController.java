@@ -42,6 +42,7 @@ public class UserController {
         userService.save(user);
     }
 
+    @ApiOperation("udpate")
     @PutMapping
     public void update(@RequestBody User user) {
         userService.updateById(user);
