@@ -5,6 +5,7 @@ import com.john.boot.common.dto.PageRequest;
 import com.john.boot.mysql.util.PageUtil;
 import com.john.user.app.entity.Role;
 import com.john.user.app.service.RoleService;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,7 @@ import java.util.Set;
 public class RoleController {
     private final RoleService roleService;
 
+    @ApiOperation("page")
     @GetMapping("/page")
     public IPage<Role> page(PageRequest pageRequest) {
         return roleService.page(PageUtil.getPage(pageRequest));
