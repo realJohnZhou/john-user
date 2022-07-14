@@ -26,6 +26,7 @@ public class RoleController {
         return roleService.page(PageUtil.getPage(pageRequest));
     }
 
+    @ApiOperation("save")
     @PostMapping
     public void save(@RequestBody Role role) {
         roleService.save(role);
