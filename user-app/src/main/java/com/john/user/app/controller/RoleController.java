@@ -32,6 +32,7 @@ public class RoleController {
         roleService.save(role);
     }
 
+    @ApiOperation("update")
     @PutMapping
     public void update(@RequestBody Role role) {
         roleService.updateById(role);
