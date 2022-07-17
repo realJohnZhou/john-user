@@ -38,6 +38,7 @@ public class RoleController {
         roleService.updateById(role);
     }
 
+    @ApiOperation("delete")
     @DeleteMapping
     public void delete(@RequestBody Set<String> ids) {
         roleService.removeByIds(ids);
