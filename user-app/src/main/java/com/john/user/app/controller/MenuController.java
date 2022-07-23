@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 /**
+ * menu api
+ *
  * @author john
  */
 @Api(tags = "menu")
